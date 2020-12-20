@@ -231,8 +231,6 @@ function Next_game() {
     picture_number();//洗牌
     player1_score =0;//玩家一的得分置为零
     player2_score =0;//玩家二的得分置为零
-    f11.t11.value=player1_score;
-    f22.t11.value=player2_score;
     f11.t33.value=0;
     f22.t33.value=0;
     document.getElementById("right1").innerHTML="";//清空原有的底牌
