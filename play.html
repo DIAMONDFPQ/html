@@ -127,7 +127,7 @@
             player2_num.sort(sortNumber);//将字牌数字降序排序
             document.getElementById("center").innerHTML="1.请查看牌<br>2.下注：按按钮或直接在下注框输入<br>" +
                 "3.豹子 > 顺金 > 金花 > 顺子 > 对子 > 单张<br>" +
-                "4.特殊：当豹子存在时，特殊牌型（非同花的235） > 豹子。"+
+                "4.特殊：当豹子存在时，特殊牌型（非同花的235） > 豹子。<br>"+
                 "5.看牌有点慢，请耐心等待";
         }//send_card()
 
@@ -175,12 +175,6 @@
             return k;
         }
         function compare_num() {//当两人牌类型一样时，比较每个牌的大小
-            // ff.p11.value=player1_num[0];
-            // ff.p12.value=player1_num[1];
-            // ff.p13.value=player1_num[2];
-            // ff.p21.value=player2_num[0];
-            // ff.p22.value=player2_num[1];
-            // ff.p23.value=player2_num[2];
             for(i=0;i<3;){
                 if( parseInt(player1_num[i])>parseInt(player2_num[i]) ){
                     player1_score=player1_score+player1_num[i];
@@ -364,15 +358,7 @@
     </script>
 </head>
 <body onload="picture_number()">
-<!--    <form name="ff">-->
-<!--        p1<input type="text" name="p11"  value="0" style="width: 50px "><br/>-->
-<!--        p1<input type="text" name="p12"  value="0" style="width: 50px "><br/>-->
-<!--        p1<input type="text" name="p13"  value="0" style="width: 50px "><br/>-->
-<!--        p2：<input type="text" name="p21"  value="0"  style="width: 50px "><br/>-->
-<!--        p2：<input type="text" name="p22"  value="0"  style="width: 50px "><br/>-->
-<!--        p2：<input type="text" name="p23"  value="0"  style="width: 50px "><br/>-->
 
-<!--    </form>-->
     <div id="right" >
         <div id="p1">玩家一</div>
         <form name="f11">
