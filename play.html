@@ -24,7 +24,6 @@
             left: 0;
             top: 25%;
             width: 25%;
-            /*height:30%;*/
             font-size: 20px;
         }
         #top{
@@ -55,7 +54,7 @@
             height:20%;
         }
         #center1{
-            //background-color: red;
+        //background-color: red;
             text-align: center;
             position: absolute;
             left: 32%;
@@ -127,7 +126,7 @@
             player2_num.sort(sortNumber);//将字牌数字降序排序
             document.getElementById("center").innerHTML="1.请查看牌<br>2.下注：按按钮或直接在下注框输入<br>" +
                 "3.豹子 > 顺金 > 金花 > 顺子 > 对子 > 单张<br>" +
-                "4.特殊：当豹子存在时，特殊牌型（非同花的235） > 豹子。<br>"+
+                "4.特殊：当豹子存在时，特殊牌型（非同花的235） > 豹子。<br>" +
                 "5.看牌有点慢，请耐心等待";
         }//send_card()
 
@@ -139,7 +138,7 @@
             if(i_n==1) {//查看玩家一的纸牌
                 document.getElementById("right1").innerHTML="";//清空原有的底牌
                 for(i=0;i<3;i++){
-                    i1 = player1[i];//获取玩家纸牌
+                    i1=player1[i];
                     var o1 = "<img src=pukeImage/" + i1 + ".jpg width='80'/>";
                     var l1=document.getElementById("right1").innerHTML;
                     document.getElementById("right1").innerHTML=l1+o1;
@@ -175,6 +174,7 @@
             return k;
         }
         function compare_num() {//当两人牌类型一样时，比较每个牌的大小
+
             for(i=0;i<3;){
                 if( parseInt(player1_num[i])>parseInt(player2_num[i]) ){
                     player1_score=player1_score+player1_num[i];
@@ -273,8 +273,6 @@
                 else
                     settle_accounts(2);
             }
-            f11.t11.value=player1_score;
-            f22.t11.value=player2_score;
 
         }//compare_score()
 
@@ -320,7 +318,7 @@
             for( var ti=1;ti<=3;ti++)
                 send_card();
         }//put_card()
-        
+
         function money(a,b) {//下注多少钱
             a.t33.value=b;
         }
@@ -353,73 +351,73 @@
             }
 
         }
-        
+
 
     </script>
 </head>
 <body onload="picture_number()">
 
-    <div id="right" >
-        <div id="p1">玩家一</div>
-        <form name="f11">
-            纸牌分：<input type="text" name="t11"  value="0" style="width: 50px "><br/>
-            总 &nbsp 钱：<input type="text" name="t22"  value="500"  style="width: 50px "><br/>
-            下 &nbsp 注：<input type="text" name="t33"  value="0" style="width: 50px "><br/>
-        </form>
-        <table align="center">
-            <tr align="center">
-                <td><input type="button" value="看牌" onclick="look_card(1)" style="font-size: 10px"/></td>
-                <td><input type="button" value="合上" onclick="close_card(1)" style="font-size: 10px"/></td>
-                <td><input type="button" value="弃牌" onclick="discard(1)" style="font-size: 10px"/></td>
-            </tr>
-            <tr align="right">
-                <td><input type="button" value="10" onclick="money(f11,this.value)" style="font-size: 15px"/></td>
-                <td><input type="button" value="20" onclick="money(f11,this.value)" style="font-size: 15px"/></td>
-                <td><input type="button" value="30" onclick="money(f11,this.value)" style="font-size: 15px"/></td>
-            </tr>
-        </table>
-        <div id="right1"></div>
-    </div>
+<div id="right" >
+    <div id="p1">玩家一</div>
+    <form name="f11">
 
-    <div id="left">
-        <div id="p2">玩家二</div>
-        <form name="f22">
-            纸牌分：<input type="text" name="t11"  value="0" style="width: 50px "><br/>
-            总 &nbsp 钱：<input type="text" name="t22"  value="500" style="width: 50px "><br/>
-            下 &nbsp 注：<input type="text" name="t33"  value="0" style="width: 50px "><br/>
-        </form>
-        <table align="center">
-            <tr align="center">
-                <td><input type="button" value="看牌" onclick="look_card(2)" style="font-size: 10px"/></td>
-                <td><input type="button" value="合上" onclick="close_card(2)" style="font-size: 10px"/></td>
-                <td><input type="button" value="弃牌" onclick="discard(2)" style="font-size: 10px"/></td>
-            </tr>
-            <tr align="right">
-                <td><input type="button" value="10" onclick="money(f22,this.value)" style="font-size: 15px"/></td>
-                <td><input type="button" value="20" onclick="money(f22,this.value)" style="font-size: 15px"/></td>
-                <td><input type="button" value="30" onclick="money(f22,this.value)" style="font-size: 15px"/></td>
-            </tr>
-        </table>
-        <div id="left1"></div>
-    </div>
-    <div id="center">
+        总 &nbsp 钱：<input type="text" name="t22"  value="500"  style="width: 50px "><br/>
+        下 &nbsp 注：<input type="text" name="t33"  value="0" style="width: 50px "><br/>
+    </form>
+    <table align="center">
+        <tr align="center">
+            <td><input type="button" value="看牌" onclick="look_card(1)" style="font-size: 10px"/></td>
+            <td><input type="button" value="合上" onclick="close_card(1)" style="font-size: 10px"/></td>
+            <td><input type="button" value="弃牌" onclick="discard(1)" style="font-size: 10px"/></td>
+        </tr>
+        <tr align="right">
+            <td><input type="button" value="10" onclick="money(f11,this.value)" style="font-size: 15px"/></td>
+            <td><input type="button" value="20" onclick="money(f11,this.value)" style="font-size: 15px"/></td>
+            <td><input type="button" value="30" onclick="money(f11,this.value)" style="font-size: 15px"/></td>
+        </tr>
+    </table>
+    <div id="right1"></div>
+</div>
 
-        <div id="center1">
-            开始请按发牌<br/>
-            <input type="button" value="发牌" onclick="put_card()" style="font-size: 20px"/>
-        </div>
-    </div>
+<div id="left">
+    <div id="p2">玩家二</div>
+    <form name="f22">
 
-    <div id="top"><br/>
-        <div id="who_Win">
-            <font color="yellow" >炸金花<br>小游戏</font>
-        </div>
-    </div>
+        总 &nbsp 钱：<input type="text" name="t22"  value="500" style="width: 50px "><br/>
+        下 &nbsp 注：<input type="text" name="t33"  value="0" style="width: 50px "><br/>
+    </form>
+    <table align="center">
+        <tr align="center">
+            <td><input type="button" value="看牌" onclick="look_card(2)" style="font-size: 10px"/></td>
+            <td><input type="button" value="合上" onclick="close_card(2)" style="font-size: 10px"/></td>
+            <td><input type="button" value="弃牌" onclick="discard(2)" style="font-size: 10px"/></td>
+        </tr>
+        <tr align="right">
+            <td><input type="button" value="10" onclick="money(f22,this.value)" style="font-size: 15px"/></td>
+            <td><input type="button" value="20" onclick="money(f22,this.value)" style="font-size: 15px"/></td>
+            <td><input type="button" value="30" onclick="money(f22,this.value)" style="font-size: 15px"/></td>
+        </tr>
+    </table>
+    <div id="left1"></div>
+</div>
+<div id="center">
 
-    <div id="button"><br/>
-        <input type="button" value="评定" onclick="compare_score()" style="font-size: 20px"/>
-        <input type="button" value="开牌" onclick="open_card()" style="font-size: 20px"/>
-        <input type="button" value="下一局" onclick="Next_game()" style="font-size: 20px"/>
+    <div id="center1">
+        开始请按发牌<br/>
+        <input type="button" value="发牌" onclick="put_card()" style="font-size: 20px"/>
     </div>
+</div>
+
+<div id="top"><br/>
+    <div id="who_Win">
+        <font color="yellow" >炸金花<br>小游戏</font>
+    </div>
+</div>
+
+<div id="button"><br/>
+    <input type="button" value="评定" onclick="compare_score()" style="font-size: 20px"/>
+    <input type="button" value="开牌" onclick="open_card()" style="font-size: 20px"/>
+    <input type="button" value="下一局" onclick="Next_game()" style="font-size: 20px"/>
+</div>
 </body>
 </html>
