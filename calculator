@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			td{
+				text-align: center;
+			}
+			#cc{
+				padding: 20px 90px;
+				text-align: right;
+				font-size: 29px;
+			}
+			.c1{
+				background-color:pink;
+				color: black;
+				padding: 15px 30px;
+				text-align: center;
+				font-size: 29px;
+			}
+			#mm{
+				font-size: 80px;
+				text-align: center;
+				color: pink;
+			}
+			#kk{
+				font-size: 50px;
+				text-align: center;
+				color: pink;
+			}
+		</style>
+		<script>
+			var i,k=0,m=0;
+			function f(a) {
+				var result=document.getElementById("cc").value;
+				if (result=="0") {
+						window.document.getElementById("cc").value=a;
+					}
+				else {
+					if(k>0) {
+						k=0;//按一次运算符，下一次按数字显示面重新显示数字
+						window.document.getElementById("cc").value=a;
+					}
+					else
+						window.document.getElementById("cc").value=result+a;
+				}
+			}
+			function f_clear() {
+				var result=document.getElementById("cc").value;
+				if (result!="0")
+					window.document.getElementById("cc").value="0";
+			}
+			function f_arithmetic(a) {
+				var n=document.getElementById("cc").value;
+				i=n+a;
+				k++;//按一次运算符，下一次按数字显示面重新显示数字
+				if(a=="/"){
+					m=1;
+				}
+			}
+			function f_equal() {
+				var n=document.getElementById("cc").value;
+				i=i+n;
+				var m=eval(i);
+				window.document.getElementById("cc").value=m;
+				i=0;//运行后置为0，使得无论按多少次”=“，都保持原来结果
+			}
+		</script>
+	</head>
+	<body>
+		<div id="mm">计算器</div>
+		<table border="1" bgcolor="pink" align="center" width="200">
+			<tr>
+				<td colspan="4"><input id="cc" type="text" value="0" ></td>
+			</tr>
+			<tr>
+				<td><input class="c1" type="button" value="1" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="2" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="3" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="+" onclick="f_arithmetic(this.value)"/></td>
+			</tr>
+			<tr>
+				<td><input class="c1" type="button" value="4" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="5" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="6" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="-" onclick="f_arithmetic(this.value)"/></td>
+			</tr>
+			<tr>
+				<td><input class="c1" type="button" value="7" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="8" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="9" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="*" onclick="f_arithmetic(this.value)"/></td>
+			</tr>
+			<tr>
+				<td><input class="c1" type="button" value="0" onclick="f(this.value)"/></td>
+				<td><input class="c1" type="button" value="c" onclick="f_clear()"/></td>
+				<td><input class="c1" type="button" value="=" onclick="f_equal()"/></td>
+				<td><input class="c1" type="button" value="/" onclick="f_arithmetic(this.value)"/></td>
+			</tr>
+		</table>
+		<div id="kk">小方制作</div>
+	</body>
+</html>
