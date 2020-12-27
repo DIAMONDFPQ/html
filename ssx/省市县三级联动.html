@@ -1,0 +1,37 @@
+<!--省市县三级联动-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>省市县三级联动</title>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+        </script>
+        <script src="省市县三级联动用.js">
+         </script>
+    </head>
+    <body>
+        <div id="123"></div>
+        <table>
+            <tr>
+                <td>省:</td>
+                <td>
+                    <select id="province" onchange="city()">
+                        <option selected="selected">请选择</option>
+                    </select>
+                </td>
+                <td>市</td>
+                <td>
+                    <select id="city" onchange="county()">
+                        <option selected="selected">请选择</option>
+                    </select>
+                </td>
+                <td>县</td>
+                <td>
+                    <select id="county">
+                        <option selected="selected">请选择</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
