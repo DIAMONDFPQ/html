@@ -58,7 +58,7 @@ function city()
                 if(pro.test(citys[i])&&(province==citys[i].substring(0,2)))//判断是否属于上一个省份
                 {
 					//console.log(citys[i]);
-                    $("#city").append("<option>"+citys[i]+"</option>");//增加城市
+                    $("#city").append("<option value="+citys[i]+">"+citys[i].substring(7,citys.length)+"</option>");//增加城市
                 }
             }
 		}
@@ -92,7 +92,7 @@ function county()
                 if(province==citys[i].substring(0,4))//判断是否属于上一个城市
                 {
 					//console.log(citys[i]);
-                    $("#county").append("<option>"+citys[i]+"</option>");//增加城市
+                    $("#county").append("<option value="+citys[i]+">"+citys[i].substring(7,citys.length)+"</option>");//增加城市
                 }
             }
 		}
