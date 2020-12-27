@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0F5B96 url(../images/img01.gif) repeat-x;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:13px;
+    color: #A4E4F5;
+}
+*{
+    list-style: none;
+    /*去掉列表前序号或标志*/
+    text-decoration: none;
+}
+#top {
+    height: 150px;
+    text-transform: lowercase;
+}
+#logo {
+    float: left;
+}
+
+#logo h1 {
+    float: left;
+    margin: 0;
+    line-height: normal;
+    padding: 47px 0 0 20px;
+    font-size: 36px;
+    color: #62D6F5;
+}
+#menu{
+    float:right;
+
+}
+#menu ul{
+    margin: 0;
+    padding: 60px 20px 0 0;
+    list-style: none;
+    /*去掉列表前序号或标志*/
+}
+#menu li {
+    display: inline;
+}
+#menu a {
+    background: #1B97CE url(../images/img03.gif) no-repeat;
+    float: left;
+    width: 120px;
+    height: 56px;
+    margin: 0 0 0 2px;
+    padding: 9px 0 0 0;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: -1px;
+    color: #62D6F5;
+}
+#page {
+    width: 1000px;
+    margin: 0 auto;
+
+}
+#leftBar {
+    float: left;
+    width: 15%;
+    padding: 0 0 0 100px;
+}
+
+#leftBar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: normal;
+}
+
+#leftBar li li {
+    padding: 6px 0 6px 10px;
+    background: url(../images/img08.gif) no-repeat 0 12px;
+    border-bottom: 1px solid #2872A6;
+}
+
+#leftBar li li a {
+    text-decoration: none;
+    color: #C9ECF5;
+}
+
+#leftBar li li a:hover {
+    color:red;
+}
+
+#leftBar li h2 {
+    padding-top: 20px;
+    color: #FFFFFF;
+}
+
+#content {
+    float: left;
+    width:50%;
+
+    background-color: #FFFFFF;
+}
+#con1{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #1EB5DD;
+    color: #0A416B;
+}
+#con2{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #1EB5DD;
+    color: #0A416B;
+}
+#rightBar {
+    margin: 15px;
+    width: 20%;
+    float: right;
+
+
+}
+#rightPicture{
+height: 150px;
+}
+#rightInformation p {
+
+}
+#rightInformation p a{
+    color: #C9ECF5;
+}
+#rightInformation p a:hover{
+    color: red;
+}
