@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>个人求职网站</title>
-    <link href="../css/11.css" rel="stylesheet" type="text/css">
+    <link href="../css/body.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/content_picture.css"  type="text/css">
+    <link href="../css/leftBar.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-<a name="topp"></a>
+    <!--    置顶锚点-->
+    <a name="istop"></a>
+
     <div id="top">
         <div id="logo">
             <h1>
@@ -15,6 +20,7 @@
                 </span>
             </h1>
         </div><!--logo-->
+
         <div id="menu">
             <ul>
                 <li>
@@ -34,75 +40,39 @@
                 </li>
             </ul>
         </div><!--menu-->
+
     </div><!--top-->
 
     <div id="page">
         <div id="leftBar">
-            <ul>
-                <li>
-                    <h2>教育经历</h2>
-                    <ul>
-                        <li><a href="#">小学</a></li>
-                        <li><a href="#">高中</a></li>
-                        <li><a href="#">大学</a></li>
-                        <li><a href="#">xxxxxx</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <h2>工作经历</h2>
-                    <ul>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">其他</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h2>实习经历</h2>
-                    <ul>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h2>xx经历</h2>
-                    <ul>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                        <li><a href="#">xxxx</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <script src="../js/leftBar.js"></script>
         </div><!--leftBar-->
-        <div id="content">
-            <div id="con1">
-                <h1>关于我</h1>
+        <div id="content" >
+            <div id="content_picture">
 
-                <a href="https://mp.weixin.qq.com/s?subscene=19&__biz=MzA4MjE3NzIzOA==&mid=2656933065&idx=2&sn=bd3242a89cabf5bd637846903d3db68d&chksm=84208970b3570066ed3662e25b48cfdd3b5d39638117f1338ef58344f7a5ec4b8679d1acb333&scene=7&ascene=65&devicetype=android-29&version=27001539&nettype=ctnet&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&exportkey=Awfa21wFK093GXzMicpD3EE%3D&pass_ticket=CvaI6C9qp%2FRsozhQO73e6vztT2PzDQAHUTsk%2F73QMMg6fvffdYrojOoVka%2Bw6v54&wx_header=1">
-                    <img src="../images/11.png" width="450"height="200">
-                </a>
-                <p>
-                    经管的小骄傲
-                </p>
-            </div><!--con1-->
+                <script src="../js/content_picture.js"></script>
+            </div><!-- content_picture -->
+
             <div id="con2">
-                <h1>所在团队</h1>
-                <a href="https://mp.weixin.qq.com/s?subscene=19&__biz=MzUzOTY0NzAwMw==&mid=2247484250&idx=1&sn=9ca63245c52a05b0e06377d5f9ab83e2&chksm=fac40e2ecdb38738b3417f6f643ce0ed33298f458ff3970a27d1db882d90b3ca376e01d32b48&scene=7&ascene=65&devicetype=android-29&version=27001539&nettype=ctnet&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&exportkey=Awyf1YhaK4yrJRmrwRZZAls%3D&pass_ticket=CvaI6C9qp%2FRsozhQO73e6vztT2PzDQAHUTsk%2F73QMMg6fvffdYrojOoVka%2Bw6v54&wx_header=1">
-                    <img src="../images/12.png" width="400"height="300">
-                </a>
-                <p>
-                  慧黠智能
-                <ul>
-                    <li><a href="#">o</a></li>
-                    <li><a href="#">xxxx</a></li>
-                    <li><a href="#">xxxx</a></li>
-                    <li><a href="#">xxxx</a></li>
-                </ul>
-                </p>
+                <h1>个人简介</h1>
+
+                <pre style="font-size: large ;color: #3b1049">
+                       南昌航空大学
+                    经 济 管 理 学 院
+                    信息管理与信息系统
+                         在校学生
+
+                </pre>
+            </div><!--con2-->
+            <div id="con3">
+                <h1>个人经历</h1>
+                <br/>
+                <h3> 曾 经 担 任：</h3>
+                <pre style="font-size: large;color: #3b1049 ">
+            团支书
+            组织委员
+            科技竞赛部负责人
+                </pre>
             </div><!--con2-->
         </div><!--content-->
         <div id="rightBar">
