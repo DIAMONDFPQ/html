@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgba(44, 44, 44, 0.67);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:13px;
+    color: #c98193;
+}
+*{
+    list-style: none;
+    /*去掉列表前序号或标志*/
+    text-decoration: none;
+}
+#top {/*在body上面*/
+    height: 150px;
+    width: 1200px;
+    margin: 0 auto;
+}
+#page {/*在body下面*/
+    width: 1200px;
+    margin: 0 auto;
+
+}
+#logo { /*top里面左浮动*/
+    float: left;
+}
+
+#logo h1 {
+    float: left;
+    margin: 0;
+    line-height: normal;
+    margin: 47px 0 0 20px;
+    font-size: 36px;
+    color: #c98193;
+}
+#menu{/*top里面右浮动*/
+    float:right;
+}
+
+#leftBar {/*page里面左浮动*/
+    float: left;
+    width: 10%;
+    margin: 0 20px  0 100px;
+}
+
+#content {/*page里面中间*/
+    float: left;
+    width:50%;
+
+
+}
+#content_picture{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    color: #c98193;
+}
+#con2{
+    margin: 15px;
+    padding: 10px;
+
+    border-radius: 20px;
+    background: gray;
+    color: #c98193;
+}
+#con3{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    background: gray;
+    color: #c98193;
+}
+#rightBar {/*page里面右边*/
+    padding: 0 20px  0 20px;
+    width: 20%;
+    float: left;
+
+
+}
+#rightPicture{
+height: 150px;
+}
+#rightInformation p {
+
+}
+#rightInformation p a{
+    color: #C9ECF5;
+}
+#rightInformation p a:hover{
+    color: red;
+}
+
+#menu ul{
+    margin: 0;
+    padding: 60px 20px 0 0;
+    list-style: none;
+    /*去掉列表前序号或标志*/
+}
+#menu li {
+    display: inline;
+}
+#menu a {
+
+    float: left;
+    width: 120px;
+    height: 56px;
+    margin: 0 0 0 2px;
+    padding: 9px 0 0 0;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: -1px;
+    color: #c98193;
+}

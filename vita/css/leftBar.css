@@ -1,0 +1,26 @@
+#leftBar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: normal;
+}
+
+#leftBar li li {
+    padding: 6px 0 6px 10px;
+    background: url(../images/img08.gif) no-repeat 0 10px;
+    border-bottom: 1px solid #2872A6;
+}
+
+#leftBar li li a {
+    text-decoration: none;
+    color: #C9ECF5;
+}
+
+#leftBar li li a:hover {
+    color:red;
+}
+
+#leftBar li h2 {
+    padding-top: 10px;
+    color: #FFFFFF;
+}

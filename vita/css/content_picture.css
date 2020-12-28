@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 500px;
+    height: 300px;
+
+    border-radius: 20px;
+    margin: 0 auto;
+}
+.inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /*visible	默认值。内容不会被修剪，会呈现在元素框之外。*/
+    /*hidden	内容会被修剪，并且其余内容是不可见的。*/
+    /*scroll	内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。*/
+    /*auto	如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。*/
+    /*inherit	规定应该从父元素继承 overflow 属性的值。*/
+}
+.inner img{
+    width: 500px;
+    height: 300px;
+    vertical-align: top
+    /*vertical-align 属性设置一个元素的垂直对齐方式。*/
+    /*top	把元素的顶端与行中最高元素的顶端对齐*/
+}
+.box ul {
+    /*如果四张图就500%；五张图就600%*/
+    width: 1000%;
+    position: absolute;
+    list-style: none;
+    left:0;
+    top: 0;
+}
+.inner li{
+    float: left;
+}
+.box ol{
+    position:absolute;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+}
+.box ol li{
+    display:inline-block;
+    /*inline-block	行内块元素*/
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #fff;
+    margin: 5px;
+    cursor: pointer;
+    /*    pointer	光标呈现为指示链接的指针（一只手)*/
+
+}
+.box ol .current{
+    background-color: red;
+}
+.box #key{
+    display: none;
+}
+.box #key span{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -20px;
+    background: #fff;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family: '黑体';
+    font-size: 30px;
+    color: #000;
+    opacity: 0.5;
+    border: 1px solid #fff;
+}
+.box #key #key_right {
+    right: 5px;
+    left: auto;
+}
