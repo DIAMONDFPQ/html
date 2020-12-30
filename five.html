@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		#hint{
+			margin: 0;
+			padding: 0;
+			float: left;
+			width: 180px;
+			height: 220px;
+			background-color: #66afe9;
+		}
+		#kk{
+			font-size: 30px;
+			float: left;
+			align-content: center
+		}
+		#win_player{
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			top: 15%;
+			left: 30%;
+			background-color: #66afe9;
+			font-size: 50px;
+		}
+		#mycanvas{
+			border: 1px solid black;
+			background-color: #8a9210
+		}
+	</style>
+</head>
+<body>
+<div id="kk">
+	<div>欢迎来到五子棋小游戏</div>
+	<canvas id="mycanvas" width="640" height="640"></canvas>
+</div>
+<!--提示区-->
+<div id="hint">
+	<p style="font-size:20px;margin:0;padding:0;text-align:center">提示区</p>
+	<p style="color:red">游戏开始<br></p>
+	<div id="message">黑棋先下；</br></div>
+	<div>
+		<input type="button" value="重新开始" onclick="again_game()">
+	</div>
+</div>
+<div id="win_player"></div>
+<script>
+	// 执黑先行
+	player1_chess=true;
+	player2_chess=false;
+	var re_X=0;
+	var re_Y=0;
+
+	// 定义一个二维数组储存下过的棋
+	var t = new Array();
+	for(var i=0;i<16;i++){
+		t[i]=new Array();
+		for(var j=0;j<16;j++){
+			t[i][j]=0;
+		}
+	}
+
+	// 棋盘
+	var canvas=document.getElementById("mycanvas");
+	var context =canvas.getContext("2d");
+	context.strokeStyle="black";
+	for(var i=0;i<=15;i++){
+		context.moveTo(40*i+20,20);
+		context.lineTo(40*i+20,620);
+		context.moveTo(20,40*i+20);
+		context.lineTo(620,40*i+20);
+	}
+	context.stroke();
+
+	//点击画布时下棋
+	mycanvas.onclick = function(e){
+		x=e.offsetX-20;//获取鼠标位置
+		y=e.offsetY-20;
+		x=Math.round(x/40);//下棋的位置
+		y=Math.round(y/40);
+
+		if(player1_chess){
+			if(t[x][y]==0){
+				play_chess(x*40+20,y*40+20,1);
+				document.getElementById("message").innerHTML='<font color=\'white\'>请下白棋；' +
+						'<font><br><br> <input type="button" value="白子认输" onclick="who_win(1)"> ' +
+						'<br><input type="button" value="黑棋悔棋"  onclick="retreat(re_X,re_Y,1)">';
+				player1_chess=false;
+				player2_chess=true;
+				t[x][y]=1;
+				re_X=x;
+				re_Y=y;
+				if(judge(x,y)){
+					who_win(1);
+				}
+			}
+			else
+				alert("这个地方已有棋，请重新下");
+		}
+		else if(player2_chess){
+			if(t[x][y]==0) {
+				play_chess(x * 40+20, y * 40+20, 2);
+				document.getElementById("message").innerHTML = '请下黑棋；' +
+						'<br><br> <input type="button" value="黑子认输" onclick="who_win(2)">' +
+						' <br><input type="button" value="白棋悔棋"  onclick="retreat(re_X,re_Y,2)">';
+				player1_chess = true;
+				player2_chess = false;
+				t[x][y]=2;
+				re_X=x;
+				re_Y=y;
+				if(judge(x,y)){
+					who_win(2);
+				}
+			}
+			else
+				alert("这个地方已有棋，请重新下");
+		}
+	}
+
+	//下棋
+	function play_chess(x,y,player){
+		if(player==1)
+			context.fillStyle="black";
+		else if(player==2)
+			context.fillStyle="white";
+		context.beginPath();
+		context.arc(x,y,15,0,Math.PI*2);
+		context.fill();
+		context.closePath();
+	}
+	// 悔棋
+	function retreat(x,y,player) {
+		t[x][y]=0;//取消标记
+		// 棋子去掉
+		context.clearRect(x*40+5,y*40+5,30,30);
+		context.moveTo(x*40+5,y*40+20);
+		context.lineTo(x*40+35,y*40+20);
+		context.moveTo(x*40+20,y*40+5);
+		context.lineTo(x*40+20,y*40+35);
+		context.stroke();
+		// 提示词
+		if(player==1){
+			player1_chess=true;
+			player2_chess=false;
+			document.getElementById("message").innerHTML='请下黑棋；';
+		}
+		else{
+			player1_chess=false;
+			player2_chess=true;
+			document.getElementById("message").innerHTML='<font color=\'white\'>请下白棋；';
+		}
+	}
+
+	//重新开始
+	function again_game() {
+		// 画布清空，重新画线
+		canvas.setAttribute('height',640);
+		context.strokeStyle="black";
+		for(var i=0;i<=15;i++){
+			context.moveTo(40*i+20,20);
+			context.lineTo(40*i+20,620);
+			context.moveTo(20,40*i+20);
+			context.lineTo(620,40*i+20);
+		}
+		context.stroke();
+		// 执黑先行
+		player1_chess=true;
+		player2_chess=false;
+		// 之前下的棋都清空
+		for(var i=0;i<16;i++){
+			for(var j=0;j<16;j++){
+				t[i][j]=0;
+			}
+		}
+		document.getElementById("message").innerHTML="黑棋先下；</br>";
+		document.getElementById("win_player").innerHTML = "";
+	}
+
+	//赢得输出结果
+	function who_win(player) {
+		if(player==1)
+			document.getElementById("win_player").innerHTML = "黑棋赢了";
+		else
+			document.getElementById("win_player").innerHTML = "白棋赢了";
+		player1_chess=false;
+		player2_chess=false;
+		document.getElementById("message").innerHTML="游戏结束";
+	}
+	//判断是否已经五子了
+	function judge(x,y){
+		var y_n=1,x_n=1,xy_n=1,yx_n=1;
+		//纵向
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x][y + i])
+				y_n++;
+			else break
+		}
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x][y - i])
+				y_n++;
+			else break;
+		}
+		//横向
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x + i][y])
+				x_n++;
+			else break
+		}
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x - i][y])
+				x_n++;
+			else break;
+		}
+		//右斜向
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x + i][y - i])
+				xy_n++;
+			else break
+		}
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x - i][y + i])
+				xy_n++;
+			else break;
+		}
+		//左斜向
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x + i][y + i])
+				xy_n++;
+			else break
+		}
+		for(i=1;i<5;i++) {
+			if (t[x][y] == t[x - i][y - i])
+				xy_n++;
+			else break;
+		}
+		if(y_n==5)
+			return true;
+		else if(x_n==5)
+			return true;
+		else if(xy_n==5)
+			return true;
+		else if(yx_n==5)
+			return true;
+	}
+</script>
+
+
+</body>
+</html>
+
