@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>省市县</title>
+    <script type="text/javascript">
+        var xmlHttp;
+        window.onload=function() {
+            //XMLHttpRequest用于在后台与服务器交换数据。可以在不重新加载整个网页的情况下，对网页的某部分进行更新
+            xmlHttp = new XMLHttpRequest();
+            requestAjax(document.getElementById("sheng"),0);
+        }
+        function requestAjax(obj,myId){
+            var url = 'https://water.hrenergy.cn/WeatherForecast/GetLinkCn?id='+ myId;
+            xmlHttp.open("GET",url);
+            xmlHttp. onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        //JSON.parse()将接收服务器的数据转化为JavaScript对象
+                        //需获取来自服务器的响应，用XMLHttpRequest对象的responseText或responseXML对象
+                        var json = JSON.parse(xmlHttp.responseText);
+                        //清空列表
+                        obj.length =1;
+                        //重选省份时清空，县清空
+                        if(obj == document.getElementById('shi')){
+                            document.getElementById('xian').innerHTML= '<option value="-1">请选择县</option>';
+                        }
+                        //填充列表
+                        for (var i=0;i<=json.length;i++){
+                            obj.options.add(new  Option(json[i].name, json[i].id));
+                        }
+                }
+            }
+            xmlHttp.send(null);
+        }
+    </script>
+</head>
+<body>
+    <select id="sheng" onchange="requestAjax(document.getElementById('shi'),this.value)">
+        <option>请选择省</option>
+    </select>
+    <select id="shi" onchange="requestAjax(document.getElementById('xian'),this.value)">
+        <option>请选择市</option>
+    </select>
+    <select id="xian">
+        <option>请选择县</option>
+    </select>
+</body>
+
+</html>
