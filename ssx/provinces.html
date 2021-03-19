@@ -21,7 +21,8 @@
 
                         //清空列表
                         obj.length =1;
-
+                        if(json == 0)
+                            obj.style.display='none';
                         //有选项时显示列表
                         if(myId != 0 && json != 0)
                             obj.style.display='list-item';
